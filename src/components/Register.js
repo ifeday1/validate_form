@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./formInput.css"
 
-const FormInput = (props) => {
+const Register = (props) => {
   const [focused, setFocused] = useState(false);
     const {label, errorMessage, onChange, id, ...inputProps} = props;
 
@@ -23,4 +23,4 @@ const FormInput = (props) => {
   )
 }
 
-export default FormInput;
+export default Register;

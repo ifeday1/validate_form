@@ -1,9 +1,17 @@
 
 import { useState } from 'react';
 import './App.css';
-import FormInput from './components/FormInput';
+import {
+  BrowserRouter,
+  Route
+} from "react-router-dom";
+import Navbar from './components/Navbar';
+import Login from "./components/Login"
+import UpdateProduct from "./components/UpdateProduct"
+import AddProduct from "./components/AddProduct"
+import Register from "./components/Register"
 
-function App() {
+ function App() {
 const [values, setValues]= useState({
   username:"",
   email:"",
@@ -60,10 +68,21 @@ errorMessage:"password should be 8-20 charaters and include at least 1 letter, 1
     pattern:values.password,
     required:true,
   },
-  
-
-  
 ]
+
+{/*}
+let result = await fetch("", {
+  method: 'POST',
+  body:JSON.stringify(inputs),
+  headers:{
+    "Content-Type": 'application/json',
+    "Accept": 'application/json'
+  }
+}}
+
+  result= await result.json()
+  console.warn("result", result)
+*/}
 
 const hnadleSubmit= (e)=>{
   e.preventDefault();
@@ -73,16 +92,43 @@ const onChange = (e) => {
 }
 console.log(values)
   return (
+    <div>
+    <Navbar />
+     {/*  <BrowserRouter>
+   <Route path='/login'>
+   <Login />
+   </Route>
+
+   <Route path='/register'>
+   <Register />
+   </Route>
+
+   <Route path='/add'>
+   <AddProduct />
+   </Route>
+
+   <Route path='/update'>
+   <UpdateProduct />
+   </Route>
+
+  </BrowserRouter> */}
+    
     <div className="app">
       <form onSubmit={hnadleSubmit}>
+      <br></br>
+      <br></br> <br></br>
+      <br></br><br></br>
       <h1>Register</h1>
       {inputs.map((input)=>(
-        <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange}/>
+        <Register key={input.id} {...input} value={values[input.name]} onChange={onChange}/>
       ))}
     
       
       <button>Submit</button>
       </form>
+
+    </div>
+
     </div>
   );
 }
