@@ -20,6 +20,7 @@ const [values, setValues]= useState({
   confirmPassword:"",
 });
 
+
 const inputs= [
   {
     id:1,
